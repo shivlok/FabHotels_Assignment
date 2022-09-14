@@ -124,9 +124,9 @@ public class WalletTransactionController {
 		
 		Transaction newTransaction = walletTransactionService
 											.createWalletTransaction(transactionModel.getTransactionUniqueId()
-																	,transactionModel.getCurrency()
+																	,transactionModel.getCurrency().toUpperCase()
 																	,transactionModel.getSenderWalletId()
-																	,transactionModel.getTransactionType()
+																	,transactionModel.getTransactionType().toUpperCase()
 																	,transactionModel.getAmount());
 						
 		log.info("Transaction created with id=" + newTransaction.getId());

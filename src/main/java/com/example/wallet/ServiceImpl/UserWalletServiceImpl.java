@@ -77,7 +77,7 @@ public class UserWalletServiceImpl implements UserWalletService {
 		// TODO Auto-generated method stub
 		try {
 			BigDecimal transactionAmount;
-			Boolean isTransactionTypeCredit = (transactionType.toUpperCase().equals(TransactionTypeValues.CREDIT.toString()));
+			Boolean isTransactionTypeCredit = (transactionType.equals(TransactionTypeValues.CREDIT.toString()));
 			if(isTransactionTypeCredit) {
 				transactionAmount = new BigDecimal(amount).abs();
 			}

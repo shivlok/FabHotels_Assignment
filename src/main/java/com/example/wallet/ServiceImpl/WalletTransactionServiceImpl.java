@@ -56,14 +56,15 @@ public class WalletTransactionServiceImpl implements WalletTransactionService {
 				throw new CustomException(String.format(errors.WALLET_NOT_FOUND, senderWalletId),HttpStatus.BAD_REQUEST.value());
 			}
 			else {
-				if( currency.toUpperCase().equals(senderWallet.getCurrency()) == false) {
+				if( currency.equals(senderWallet.getCurrency()) == false) {
 					
 					throw new CustomException(String.format(errors.CURRENCY_DO_NOT_MATCH, senderWalletId),HttpStatus.BAD_REQUEST.value());
 				}
+				System.out.println(currency);
 				senderWallet= userWalletService.makeTransactionFromWallet(senderWallet, transactionType, amount);
 				
 			}
-			Transaction newTransaction = new Transaction(transactionUniqueId, senderWallet, new BigDecimal(amount), currency, transactionType.toUpperCase()); 
+			Transaction newTransaction = new Transaction(transactionUniqueId, senderWallet, new BigDecimal(amount), currency.toUpperCase(), transactionType); 
 			if(senderWallet != null) {
 				newTransaction.setStatus(true);
 			}

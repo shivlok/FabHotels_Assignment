@@ -33,7 +33,7 @@ public TransactionDto map(Transaction transaction) {
 	TransactionDto transactionDto = new TransactionDto();
 	transactionDto.setAmount(transaction.getAmount());
 	transactionDto.setCreatedAt(transaction.getTranactionTimestamp());
-	transactionDto.setCurrency(transaction.getCurrency());
+	transactionDto.setCurrency(transaction.getCurrency().toUpperCase());
 	transactionDto.setId(transaction.getId());
 	transactionDto.setSenderWalletId(String.valueOf(transaction.getWallet().getId()));
 	transactionDto.setStatus(transaction.getStatus());

@@ -29,12 +29,7 @@ public class Transaction {
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wallet_id")
 	private Wallet wallet;
-	
-//	@NotNull(message = "Reciever wallet should be present")
-//	@ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "wallet_id")
-//	private Wallet recieverWallet;
-//	
+		
 	private BigDecimal amount;
 	
 	private String currency;
@@ -85,13 +80,6 @@ public class Transaction {
 		this.wallet = senderWallet;
 	}
 
-//	public Wallet getRecieverWallet() {
-//		return recieverWallet;
-//	}
-//
-//	public void setRecieverWallet(Wallet recieverWallet) {
-//		this.recieverWallet = recieverWallet;
-//	}
 
 	public BigDecimal getAmount() {
 		return amount;
